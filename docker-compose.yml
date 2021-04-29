@@ -28,7 +28,7 @@ services:
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
-      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./setup/mysql:/docker-entrypoint-initdb.d
     networks:
       - laravel
 
@@ -40,7 +40,7 @@ services:
       - 8000:80
     volumes:
       - ./:/var/www
-      - ./docker-compose/nginx:/etc/nginx/conf.d/
+      - ./setup/nginx:/etc/nginx/conf.d/
     networks:
       - laravel
 
