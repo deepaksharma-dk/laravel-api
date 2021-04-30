@@ -33,9 +33,4 @@ WORKDIR /var/www
 
 COPY ./ /var/www
 
-# RUN Deploy bash
-COPY setup/php/deploy.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/deploy.sh
-RUN /usr/local/bin/deploy.sh
-
 USER $user
