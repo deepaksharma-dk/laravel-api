@@ -10,23 +10,26 @@ services:
     image: laravel-app
     container_name: laravel-app
     restart: unless-stopped
-    working_dir: /var/www/
+    working_dir: /var/www
+    depends_on:
+      - mysql
+      - nginx
     volumes:
       - ./:/var/www
     networks:
       - laravel
 
-  db:
+  mysql:
     image: mysql:5.7
     container_name: laravel-db
     restart: unless-stopped
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
     volumes:
       - ./setup/mysql:/docker-entrypoint-initdb.d
     networks:
@@ -45,5 +48,5 @@ services:
       - laravel
 
 networks:
-   laravel:
+  laravel:
     driver: bridge

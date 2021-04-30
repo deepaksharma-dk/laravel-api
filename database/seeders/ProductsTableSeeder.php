@@ -19,7 +19,15 @@ class ProductsTableSeeder extends Seeder
 
         $faker = \Faker\Factory::create();
 
-        // And now, let's create a few products in our database:
+        Product::create([
+            'title' => 'Laptop',
+            'sku' => '12345',
+        ]);
+        Product::create([
+            'title' => 'Mobile',
+            'sku' => '11223',
+        ]);
+        
         for ($i = 0; $i < 50; $i++) {
             Product::create([
                 'title' => $faker->word,

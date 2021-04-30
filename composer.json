@@ -45,6 +45,10 @@
         ],
         "test": [
             "vendor/bin/phpunit"
+        ],
+        "populate-tables-and-data": [
+            "php artisan migrate",
+            "php artisan db:seed --class=ProductsTableSeeder"
         ]
     },
     "extra": {

@@ -13,6 +13,6 @@ class ProductContoller extends Controller
             return [];
         } 
         
-        return response()->json(Product::where('title', 'like', '%'.$request->query('term').'%')->get());
+        return response()->json(Product::select(['id', 'title'])->where('title', 'like', '%'.$request->query('term').'%')->get());
     }
 }
