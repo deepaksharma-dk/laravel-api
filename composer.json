@@ -48,7 +48,6 @@
             "php artisan migrate",
             "php artisan db:seed --class=ProductsTableSeeder"
         ],
-
         "test": [
             "vendor/bin/phpunit"
         ]

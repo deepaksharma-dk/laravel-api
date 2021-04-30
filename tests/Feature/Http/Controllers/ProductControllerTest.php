@@ -15,9 +15,9 @@ class ProductControllerTest extends TestCase
      */
     public function testAutoCompleteWithResult()
     {
-        $response = $this->get('http://127.0.0.1:8000/api/autocomplete?term=aut');
+        $response = $this->get('http://127.0.0.1:8000/api/autocomplete?term=lap');
         $response->assertStatus(200);
-        $response->assertJsonStructure([['id', 'title', 'sku', 'created_at', 'updated_at']]);
+        $response->assertJsonStructure([['id', 'title']]);
     }
 
     public function testAutoCompleteWithoutResult()
